@@ -5,11 +5,11 @@ import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
 @ConfigurationProperties(prefix = "spring.redis")
-public class RedisConf {
-
-
+public class RedisConf implements Serializable {
 
     private int database;
 
