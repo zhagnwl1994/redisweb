@@ -58,6 +58,8 @@ public class MyRedis {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+
+
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -74,14 +76,12 @@ public class MyRedis {
     }
 
     @GetMapping(value = "/getBooks")
-    @Cacheable(value = {"CACHE_BOOK"}, key = "BookList")
+    @Cacheable(value = {"CACHE_BOOK"})
 //    public List<Book> getBooks(String username, int language) {
     public List<Book> getBooks() {
-        // balabalabala...里面的代码不重要
         List<Book> bookList = new ArrayList<>();
-
         bookList.add(new Book("线性代数", 1));
-        bookList.add(new Book("毛概", 1));
+        bookList.add(new Book("毛概", 2));
 
         return bookList;
     }
@@ -108,6 +108,7 @@ public class MyRedis {
 
         return "delete";
     }
+
 
     @CacheEvict(cacheNames = {"user"}, allEntries = true)
     @PostMapping("/deleteall")

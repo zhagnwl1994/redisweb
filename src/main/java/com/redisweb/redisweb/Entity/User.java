@@ -8,7 +8,9 @@ public class User implements Serializable {
     private String rule;
     private String password;
 
-
+    public User(String id) {
+        this.id = id;
+    }
 
     public User(String id, String rule, String password) {
         this.id = id;
@@ -38,5 +40,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", rule='" + rule + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
